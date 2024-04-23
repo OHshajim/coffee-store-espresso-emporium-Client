@@ -12,15 +12,15 @@ import AddCoffee from './AddCoffee';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/>,
-    children:[
+    element: <Root />,
+    children: [
       {
-        path:"/",
-        element:<Home/>
+        path: "/",
+        element: <Home />
       },
       {
-        path:"/addCoffee",
-        element:<AddCoffee/>
+        path: "/addCoffee",
+        element: <AddCoffee />
       },
     ]
   },
