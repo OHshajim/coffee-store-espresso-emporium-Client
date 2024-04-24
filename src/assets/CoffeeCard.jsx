@@ -1,9 +1,38 @@
 import { FaEye, FaPen } from "react-icons/fa";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CoffeeCard = ({ coffee }) => {
-    const { name, chef, photo, price } = coffee;
+    const { _id, name, chef, photo, price } = coffee;
+
+    const handleDelete = () => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Swal.fire({
+                //     title: "Deleted!",
+                //     text: "Your coffee has been deleted.",
+                //     icon: "success"
+                // });
+                fetch(`http://localhost:5000/coffee/${_id}`,{
+                    method:"DELETE"
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    console.log(data);
+                    // if(data)
+                })
+            }
+        });
+    }
     return (
         <div>
             <div className="card lg:card-side bg-[#F5F4F1] shadow-xl">
@@ -17,7 +46,9 @@ const CoffeeCard = ({ coffee }) => {
                     <div className="flex flex-col space-y-2 ">
                         <Link to="/coffeeDetails"><button className="btn text-2xl text-white bg-[#D2B48C] "><FaEye /></button></Link>
                         <button className="btn text-2xl text-white bg-[#3C393B] "><FaPen /></button>
-                        <button className="btn text-2xl text-white bg-[#EA4744] "><FaDeleteLeft /></button>
+                        <button
+                            onClick={handleDelete}
+                            className="btn text-2xl text-white bg-[#EA4744] "><FaDeleteLeft /></button>
                     </div>
                 </div>
             </div>
