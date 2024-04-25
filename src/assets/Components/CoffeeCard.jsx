@@ -48,8 +48,12 @@ const CoffeeCard = ({ coffee, coffees, setCoffee }) => {
                         <h2 className="card-title py-2">Price :<span className="text-[#1B1A1AB3]">{price}</span></h2>
                     </div>
                     <div className="flex flex-col space-y-2 ">
-                        <Link to="/coffeeDetails"><button className="btn text-2xl text-white bg-[#D2B48C] "><FaEye /></button></Link>
-                        <Link to={`/updateCoffee/${_id}`}><button className="btn text-2xl text-white bg-[#3C393B] "><FaPen /></button></Link>
+                        <Link to={`/coffeeDetails/${_id}`}><button
+                         className="btn text-2xl text-white bg-[#D2B48C] "><FaEye /></button></Link>
+
+                        <Link to={`/updateCoffee/${_id}`}><button
+                         className="btn text-2xl text-white bg-[#3C393B] "><FaPen /></button></Link>
+
                         <button
                             onClick={handleDelete}
                             className="btn text-2xl text-white bg-[#EA4744] "><FaDeleteLeft /></button>

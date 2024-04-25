@@ -1,27 +1,26 @@
+import { BiArrowBack } from "react-icons/bi";
 import { Link, useLoaderData } from "react-router-dom";
 
 const CoffeeDetails = () => {
-    const Coffee = useLoaderData()
-    const { name, chef, photo, price } = coffee;
+    const coffee = useLoaderData()
+    const { name, chef, photo, supplier, taste, category, details, } = coffee;
 
     return (
         <div className='max-w-[1600px] mx-auto my-20'>
             <Link to="/"><button className='flex btn bg-transparent shadow-none border-none text-3xl my-7 gap-4'><BiArrowBack /> Back to Home</button></Link>
-            <div className="card lg:card-side bg-[#F5F4F1] shadow-xl">
-                <figure><img src={photo} alt={name} /></figure>
-                <div className=" flex items-center justify-between w-full p-5 md:p-10 ">
-                    <div className="space-y-2">
-                        <h2 className="card-title py-2">name : <span className="text-[#1B1A1AB3]">{name}</span></h2>
-                        <h2 className="card-title py-2">Chef : <span className="text-[#1B1A1AB3]">{chef}</span></h2>
-                        <h2 className="card-title py-2">Price :<span className="text-[#1B1A1AB3]">{price}</span></h2>
-                    </div>
-                    <div className="flex flex-col space-y-2 ">
-                        <Link to="/coffeeDetails"><button className="btn text-2xl text-white bg-[#D2B48C] "><FaEye /></button></Link>
-                        <button className="btn text-2xl text-white bg-[#3C393B] "><FaPen /></button>
-                        <button className="btn text-2xl text-white bg-[#EA4744] "><FaDeleteLeft /></button>
-                    </div>
+            <div className="card lg:card-side bg-[#F5F4F1] p-24 gap-20">
+                <figure><img src={photo} alt={name} className="flex-1" /></figure>
+                <div className="flex-1 p-5 md:p-10 space-y-2">
+                    <h1 className="text-4xl text-[#331A15] font-bold">Niceties</h1>
+                    <h2 className="text-xl font-semibold ">name : <span className="text-[#1B1A1AB3] font-normal">{name}</span></h2>
+                    <h2 className="text-xl font-semibold ">Chef : <span className="text-[#1B1A1AB3] font-normal">{chef}</span></h2>
+                    <h2 className="text-xl font-semibold ">supplier : <span className="text-[#1B1A1AB3] font-normal">{supplier}</span></h2>
+                    <h2 className="text-xl font-semibold ">taste : <span className="text-[#1B1A1AB3] font-normal">{taste}</span></h2>
+                    <h2 className="text-xl font-semibold ">category : <span className="text-[#1B1A1AB3] font-normal">{category}</span></h2>
+                    <h2 className="text-xl font-semibold ">details : <span className="text-[#1B1A1AB3] font-normal"> {details}</span></h2>
                 </div>
-            </div>        </div>
+            </div>
+        </div>
     );
 };
 
