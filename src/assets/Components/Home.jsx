@@ -1,4 +1,4 @@
-import Coffees from "../Coffees";
+import Coffees from "./Coffees";
 
 const Home = () => {
     return (

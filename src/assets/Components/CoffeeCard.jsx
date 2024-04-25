@@ -3,7 +3,7 @@ import { FaDeleteLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const CoffeeCard = ({ coffee }) => {
+const CoffeeCard = ({ coffee, coffees, setCoffee }) => {
     const { _id, name, chef, photo, price } = coffee;
 
     const handleDelete = () => {
@@ -17,19 +17,23 @@ const CoffeeCard = ({ coffee }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                // Swal.fire({
-                //     title: "Deleted!",
-                //     text: "Your coffee has been deleted.",
-                //     icon: "success"
-                // });
-                fetch(`http://localhost:5000/coffee/${_id}`,{
-                    method:"DELETE"
+
+                fetch(`http://localhost:5000/coffee/${_id}`, {
+                    method: "DELETE"
                 })
-                .then(res=>res.json())
-                .then(data=>{
-                    console.log(data);
-                    // if(data)
-                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your coffee has been deleted.",
+                                icon: "success"
+                            });
+                            const remaining = coffees.filter(cof => cof._id !== _id)
+                            setCoffee(remaining)
+                        }
+                    })
             }
         });
     }
@@ -45,7 +49,7 @@ const CoffeeCard = ({ coffee }) => {
                     </div>
                     <div className="flex flex-col space-y-2 ">
                         <Link to="/coffeeDetails"><button className="btn text-2xl text-white bg-[#D2B48C] "><FaEye /></button></Link>
-                        <button className="btn text-2xl text-white bg-[#3C393B] "><FaPen /></button>
+                        <Link to={`/updateCoffee/${_id}`}><button className="btn text-2xl text-white bg-[#3C393B] "><FaPen /></button></Link>
                         <button
                             onClick={handleDelete}
                             className="btn text-2xl text-white bg-[#EA4744] "><FaDeleteLeft /></button>

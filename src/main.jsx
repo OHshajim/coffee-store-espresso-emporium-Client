@@ -7,8 +7,8 @@ import {
 import "./index.css";
 import Root from './Root';
 import Home from './assets/Components/Home';
-import AddCoffee from './AddCoffee';
-import CoffeeDetails from './CoffeeDetails';
+import AddCoffee from './assets/Components/AddCoffee';
+import UpdateCoffee from './assets/Components/UpdateCoffee';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +23,11 @@ const router = createBrowserRouter([
       {
         path: "/addCoffee",
         element: <AddCoffee />
+      },
+      {
+        path: "/updateCoffee/:id",
+        element: <UpdateCoffee />,
+        loader:({params})=>fetch(`http://localhost:5000/coffee/${params.id}`)
       },
       // {
       //   path: "/coffeeDetails",
