@@ -10,11 +10,13 @@ import Home from './assets/Components/Home';
 import AddCoffee from './assets/Components/AddCoffee';
 import UpdateCoffee from './assets/Components/UpdateCoffee';
 import CoffeeDetails from './assets/Components/CoffeeDetails';
+import Error from './assets/Components/Error';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement:<Error/>,
     children: [
       {
         path: "/",
