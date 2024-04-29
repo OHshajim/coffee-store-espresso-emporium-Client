@@ -1,9 +1,13 @@
+import Banner from "./Banner";
 import Coffees from "./Coffees";
+import Tags from "./Tags";
 
 const Home = () => {
     return (
         <div>
-            <Coffees/>
+            <Banner />
+            <Tags />
+            <Coffees />
         </div>
     );
 };
