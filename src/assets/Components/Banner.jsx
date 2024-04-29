@@ -1,7 +1,7 @@
 
 const Banner = () => {
     return (
-        <div className="bg-[url('../../../public/more/3.png')] h-[80vh] bg-cover  flex   items-center justify-center ">
+        <div className="bg-[url('../more/3.png')] h-[80vh] bg-cover  flex   items-center justify-center ">
             <div className="flex-1"></div>
             <div className="p-10 text-white">            
                 <h1 className="text-3xl md:text-4xl lg:text-6xl ">Would you like a Cup of Delicious Coffee?</h1>

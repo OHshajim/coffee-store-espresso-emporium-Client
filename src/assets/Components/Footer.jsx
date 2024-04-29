@@ -6,10 +6,10 @@ import { MdEmail } from "react-icons/md";
 const Footer = () => {
     return (
         <div>
-            <div className="bg-[url('../../../public/more/13.jpg')] flex mt-20">
+            <div className="bg-[url('../more/13.jpg')] flex mt-20">
                 <div className=" flex flex-col sm:flex-row justify-between items-center max-w-[1600px] mx-auto py-20 gap-10">
                     <div>
-                        <img src="../../../public/more/logo.png" alt="" className="w-16" />
+                        <img src="../more/logo.png" alt="" className="w-16" />
                         <h1 className="text-2xl md:text-4xl  mt-4">Espresso Emporium</h1>
                         <p className="mt-3">Always ready to be your friend. Come & Contact with us to share your memorable moments, to share with your best companion.</p>
                     </div>
@@ -22,7 +22,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <footer className="footer footer-center p-2 text-white bg-[url('../../../public/more/24.jpg')] ">
+            <footer className="footer footer-center p-2 text-white bg-[url('../more/24.jpg')] ">
                 <aside>
                     <h4>Copyright Espresso Emporium ! All Rights Reserved</h4>
                 </aside>

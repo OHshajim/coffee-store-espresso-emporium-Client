@@ -18,7 +18,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffee }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/coffee/${_id}`, {
+                fetch(`https://coffee-store-espresso-emporium-server-navy.vercel.app/coffee/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -49,10 +49,10 @@ const CoffeeCard = ({ coffee, coffees, setCoffee }) => {
                     </div>
                     <div className="flex flex-col space-y-2 ">
                         <Link to={`/coffeeDetails/${_id}`}><button
-                         className="btn text-2xl text-white bg-[#D2B48C] "><FaEye /></button></Link>
+                            className="btn text-2xl text-white bg-[#D2B48C] "><FaEye /></button></Link>
 
                         <Link to={`/updateCoffee/${_id}`}><button
-                         className="btn text-2xl text-white bg-[#3C393B] "><FaPen /></button></Link>
+                            className="btn text-2xl text-white bg-[#3C393B] "><FaPen /></button></Link>
 
                         <button
                             onClick={handleDelete}
